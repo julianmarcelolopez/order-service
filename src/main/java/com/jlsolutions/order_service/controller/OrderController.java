@@ -1,5 +1,6 @@
 package com.jlsolutions.order_service.controller;
 
+import com.jlsolutions.order_service.dto.OrderRequest;
 import com.jlsolutions.order_service.model.Order;
 import com.jlsolutions.order_service.service.OrderService;
 import java.util.List;
@@ -22,8 +23,8 @@ public class OrderController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-		Order createdOrder = orderService.createOrder(order);
+	public ResponseEntity<Order> createOrder(@RequestBody OrderRequest orderRequest) {
+		Order createdOrder = orderService.createOrder(orderRequest);
 		return ResponseEntity.ok(createdOrder);
 	}
 

@@ -1,5 +1,6 @@
 package com.jlsolutions.order_service.model;
 
+import com.jlsolutions.order_service.model.enums.OrderStatus;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Builder;
@@ -15,8 +16,11 @@ public class Order {
 	@Id
 	private ObjectId id;
 	private String customerName;
-	private LocalDateTime orderDate;
+
+	@Builder.Default
+	private LocalDateTime createdAt = LocalDateTime.now();
+
 	private List<OrderItem> items;
 	private double totalAmount;
-	private String status;
+	private OrderStatus status;
 }
